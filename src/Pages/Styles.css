@@ -1,0 +1,21 @@
+.articles-container {
+   width: 100%;
+    
+}
+
+.nav-container {
+   width: 100% !important;
+}
+
+.card-size {
+   width: 400px;
+   height: 124px;
+   border-radius: 0%;
+   margin-bottom: 10px;
+}
+
+.img-size {
+   width: 400px;
+   height: 250px;
+   border-radius: 0%;
+} 
