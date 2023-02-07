@@ -45,11 +45,11 @@ console.log(findCurrentPost())
         <Container fluid >
             <Navigation />
             <Row>
-                <div class="bg-secondary">
-                    <h4 class="text-white mt-5 ml-6">{curPost.title}</h4>
-                    <img src={curPost.imageUrl}/>
-                    <div>{curPost.description}</div>
-                    <div class="bg-white mb-5">{curPost.expertComment}</div>
+                <div class="bg-secondary p-5">
+                    <h4 class="text-white">{curPost.title}</h4>
+                    <img className="mt-3" src={curPost.imageUrl}/>
+                    <div className="mt-3">{curPost.description}</div>
+                    <div className="bg-white mt-3">{curPost.expertComment}</div>
                 </div>
             </Row>
         </Container>
