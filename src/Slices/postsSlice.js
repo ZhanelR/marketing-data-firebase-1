@@ -2,14 +2,14 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-export const fetchPosts = createAsyncThunk(
+/* export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
     const {data} = await axios.get('http://localhost:3001/posts')
     //!! использован локальный сервер на node.js для возврата постов во избежание CORS
     return data
   }
-)
+) */
 
 const initialState = {
     items: [],
@@ -22,27 +22,18 @@ export const postsSlice = createSlice({
   name: 'posts',
   initialState,
 
-  reducers: {},
-extraReducers: {
-
-  [fetchPosts.pending]: (state) => {
-    state.status = 'loading'
-    state.items = []
+  reducers: {
+    addPostsToStore: (state, action) => {
+      console.log(action.payload)
+      if (action.payload[0]["some-data"]) state.items = action.payload[0]["some-data"]
+          return state
+    }
   },
 
-  [fetchPosts.fulfilled]: (state, action) => {
-    state.items = action.payload
-    state.status = 'success'
-    console.log(fetchPosts);
-  },
-
-  [fetchPosts.rejected]: (state) => {
-    state.status = 'error'
-    state.items = []
-  }
-}
 },
 
 )
-
+export const { addPostsToStore } = postsSlice.actions;
 export default postsSlice.reducer
+
+
